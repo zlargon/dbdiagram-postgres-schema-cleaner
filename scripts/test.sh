@@ -16,7 +16,15 @@ for i in {1..2}; do
   if [[ "$expect_checksum" != "$actual_checksum" ]]; then
     echo "Test failed"
     diff -u test/${i}_schema_expect.sql test/${i}_result.sql | diff-so-fancy | less --tabs=4 -RFX
-    exit -1
+
+    # ask for update test case
+    echo ""
+    read -p "Do you want to update the test case? [Y/N] " ans
+    if [[ $ans == "Y" || $ans == "y" ]]; then
+      cp test/${i}_result.sql test/${i}_schema_expect.sql
+    else
+      exit -1
+    fi
   fi
 
   echo "${i} - Test Pass"

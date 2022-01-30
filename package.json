@@ -3,7 +3,6 @@
     "db": "scripts/setup_postgres.sh",
     "dump": "scripts/dump.sh",
     "test": "scripts/test.sh",
-    "update:test": "cp test/1_result.sql test/1_schema_expect.sql",
     "-------- docker commands --------": "",
     "ps": "docker ps",
     "up": "docker compose -f docker-compose.yml -p dvdrental up -d",
