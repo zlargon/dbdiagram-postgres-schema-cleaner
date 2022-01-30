@@ -4,7 +4,7 @@ services:
     image: postgres:latest
     ports:
       # https://docs.docker.com/compose/environment-variables/
-      - '${ENV_POSTGRES_PORT:-5432}:5432'
+      - '${POSTGRES_PORT:-5432}:5432'
     environment:
       # create a default database called 'dvdrental'
       POSTGRES_DB: dvdrental

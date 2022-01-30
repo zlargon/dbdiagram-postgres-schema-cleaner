@@ -1,12 +1,5 @@
 {
   "scripts": {
-    "db": "scripts/setup_postgres.sh",
-    "test": "test/unit/run.sh",
-    "-------- docker commands --------": "",
-    "ps": "docker ps",
-    "up": "docker compose -f docker-compose.yml -p dvdrental up -d",
-    "stop": "docker compose -f docker-compose.yml -p dvdrental stop",
-    "down": "docker compose -f docker-compose.yml -p dvdrental down",
-    "log": "docker compose -f docker-compose.yml -p dvdrental logs --follow"
+    "test": "test/unit/run.sh"
   }
 }
