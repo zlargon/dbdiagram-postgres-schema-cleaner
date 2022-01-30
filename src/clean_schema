@@ -63,11 +63,22 @@ readline.createInterface({ input }).on('line', (line) => {
 
     // Valid CREATE statement
     if (createStatement === 'TABLE') {
-      // TODO:
-      // find the TYPE segment
-      // if has ".", remove the prefix schema name
-      // if has [], rename to 'xxx_array'
-      // if DEFAULT has ::, remove any thing behind the ::
+      // 1. if type has ".", remove the prefix schema name
+      line = line.replace(/(^\s*\w+ )\w+\.(\w+.*$)/, (match, p1, p2, offset, string) => {
+        return p1 + p2;
+      });
+
+      // 2. if has [], rename to 'xxx_array'
+      line = line.replace(/(^\s*\w+ \w+)\[\](.*$)/, (match, p1, p2, offset, string) => {
+        return `${p1}_array${p2}`;
+      });
+
+      // 3. if DEFAULT has ::, remove the DEFAULT
+      line = line.replace(/(^.*)( DEFAULT.+$)/, (match, p1, p2, offset, string) => {
+        return !p2.includes('::')
+          ? string // don't have ::
+          : p1 + (p2[p2.length - 1] === ',' ? ',' : ''); // has ::, and check last ,
+      });
     }
     write(createStatement, line);
     return;
@@ -88,8 +99,10 @@ readline.createInterface({ input }).on('line', (line) => {
   // Valid CREATE statement
   if (validCreateStatements.has(createStatement)) {
     if (createStatement === 'TYPE') {
-      // TODO:
-      // if has ".", remove the prefix schema name
+      // if type has ".", remove the prefix schema name
+      line = line.replace(/(^CREATE TYPE )\w+\.(\w+.*$)/, (match, p1, p2, offset, string) => {
+        return p1 + p2;
+      });
     }
     write(createStatement, line);
     return;
