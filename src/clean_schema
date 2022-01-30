@@ -84,11 +84,18 @@ readline.createInterface({ input }).on('line', (line) => {
     return;
   }
 
-  // check the CREATE statements
-  const result = line.match(/^CREATE (\w+)/);
+  // check ALTER statements
+  let result = line.match(/^ALTER (\w+)/);
+  if (result && result[1] !== 'TABLE') {
+    // ALTER TABLE is the only valid ALTER statement
+    write('drop', line);
+    return;
+  }
 
-  // NOT CREATE statement
+  // check CREATE statements
+  result = line.match(/^CREATE (\w+)/);
   if (result === null) {
+    // NOT CREATE statement
     createStatement = null;
     write('', line);
     return;
