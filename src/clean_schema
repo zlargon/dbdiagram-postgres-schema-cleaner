@@ -18,23 +18,6 @@ const validCreateStatements = new Set([
   'VIEW',
 ]);
 
-const DEV = false;
-const write = (tag, line) => {
-  if (tag === 'drop') return;
-
-  if (DEV) {
-    tag = tag.toLowerCase();
-    process.stdout.write(tag);
-    if (tag.length > 0) {
-      process.stdout.write(':');
-      if (line.length > 0) process.stdout.write(' ');
-    }
-  }
-
-  process.stdout.write(line);
-  process.stdout.write('\n');
-};
-
 let thisLineIsFirstColumn = false;
 let createStatement = null;
 let continuousNewLines = 0;
@@ -47,7 +30,6 @@ readline.createInterface({ input }).on('line', (line) => {
     if (continuousNewLines === 2) {
       continuousNewLines = 0;
       createStatement = null;
-      // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
     }
   } else {
     // reset to 0
@@ -58,7 +40,6 @@ readline.createInterface({ input }).on('line', (line) => {
   if (createStatement !== null) {
     // Invalid CREATE statement
     if (!validCreateStatements.has(createStatement)) {
-      write('drop', line);
       return;
     }
 
@@ -95,7 +76,7 @@ readline.createInterface({ input }).on('line', (line) => {
         thisLineIsFirstColumn = false;
       }
     }
-    write(createStatement, line);
+    console.log(line);
     return;
   }
 
@@ -103,7 +84,6 @@ readline.createInterface({ input }).on('line', (line) => {
   let result = line.match(/^ALTER (\w+)/);
   if (result && result[1] !== 'TABLE') {
     // ALTER TABLE is the only valid ALTER statement
-    write('drop', line);
     return;
   }
 
@@ -112,29 +92,30 @@ readline.createInterface({ input }).on('line', (line) => {
   if (result === null) {
     // NOT CREATE statement
     createStatement = null;
-    write('', line);
-    return;
-  }
-
-  createStatement = result[1];
-
-  // Valid CREATE statement
-  if (validCreateStatements.has(createStatement)) {
-    if (createStatement === 'TYPE') {
-      // if type has ".", remove the prefix schema name
-      line = line.replace(/(^CREATE TYPE )\w+\.(\w+.*$)/, (match, p1, p2, offset, string) => {
-        return p1 + p2;
-      });
-    }
-
-    if (createStatement === 'TABLE') {
-      thisLineIsFirstColumn = true;
-    }
-
-    write(createStatement, line);
+    console.log(line);
     return;
   }
 
   // Invalid CREATE statement => Drop this line
-  write('drop', line);
+  createStatement = result[1];
+  if (!validCreateStatements.has(createStatement)) {
+    return;
+  }
+
+  // Valid CREATE statement:
+
+  // CREATE TYPE
+  if (createStatement === 'TYPE') {
+    // if type has ".", remove the prefix schema name
+    line = line.replace(/(^CREATE TYPE )\w+\.(\w+.*$)/, (match, p1, p2, offset, string) => {
+      return p1 + p2;
+    });
+  }
+
+  // CREATE TABLE
+  if (createStatement === 'TABLE') {
+    thisLineIsFirstColumn = true;
+  }
+
+  console.log(line);
 });
