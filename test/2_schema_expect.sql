@@ -138,12 +138,6 @@ CREATE TABLE auth_sender.authorization_order (
     , snapshot_time timestamp with time zone
     , use_old_workflow_date timestamp with time zone
     , use_old_workflow_reason character varying(20)
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
     , signed timestamp with time zone
     , version_index integer DEFAULT 1
     , primary_insurance_category character varying(20)
@@ -184,12 +178,6 @@ CREATE TABLE auth_sender.authorization_order_attachment (
     , document_ext_id integer
     , display_name character varying(100)
     , display_file_type character varying(100)
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
 );
 
 
@@ -204,8 +192,6 @@ CREATE TABLE auth_sender.authorization_order_attachment_audr (
     , source_id character varying(50)
     , old_value character varying(255)
     , new_value character varying(255)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 
@@ -239,8 +225,6 @@ CREATE TABLE auth_sender.authorization_order_audr (
     , source_id uuid
     , old_value character varying(255)
     , new_value character varying(255)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 
@@ -273,12 +257,6 @@ CREATE TABLE auth_sender.authorization_order_history_event (
     , authorization_order_status_id character varying(100)
     , ordering integer
     , note character varying(4000)
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
     , insurance_ext_id integer
     , insurance_sequence_number integer
     , insurance_task_group_status character varying(30)
@@ -307,8 +285,6 @@ CREATE TABLE auth_sender.authorization_order_history_event_audr (
     , source_id uuid
     , old_value character varying(4000)
     , new_value character varying(4000)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 
@@ -343,12 +319,6 @@ CREATE TABLE auth_sender.authorization_order_insurance_task (
     , procedure_code character varying(15)
     , status character varying(15)
     , status_origin character varying(30)
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
     , authorization_order_procedure_code_id uuid
     , most_recent_history_event_id uuid
 );
@@ -365,8 +335,6 @@ CREATE TABLE auth_sender.authorization_order_insurance_task_audr (
     , source_id uuid
     , old_value character varying(255)
     , new_value character varying(255)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 
@@ -397,12 +365,6 @@ CREATE TABLE auth_sender.authorization_order_mapping_history_and_tasks (
     id uuid NOT NULL
     , history_event_id uuid
     , insurance_task_id uuid
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
 );
 
 
@@ -417,8 +379,6 @@ CREATE TABLE auth_sender.authorization_order_mapping_history_and_tasks_audr (
     , source_id uuid
     , old_value character varying(255)
     , new_value character varying(255)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 
@@ -449,12 +409,6 @@ CREATE TABLE auth_sender.authorization_order_procedure_code (
     id uuid NOT NULL
     , procedure_code character varying(15)
     , authorization_order_id uuid
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
 );
 
 
@@ -469,8 +423,6 @@ CREATE TABLE auth_sender.authorization_order_procedure_code_audr (
     , source_id uuid
     , old_value character varying(255)
     , new_value character varying(255)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 
@@ -501,12 +453,6 @@ CREATE TABLE auth_sender.authorization_order_rules_event (
     id uuid NOT NULL
     , authorization_order_id uuid
     , rule_type character varying(20)
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
 );
 
 
@@ -521,8 +467,6 @@ CREATE TABLE auth_sender.authorization_order_rules_event_audr (
     , source_id uuid
     , old_value character varying(255)
     , new_value character varying(255)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 
@@ -555,12 +499,6 @@ CREATE TABLE auth_sender.authorization_order_rules_event_result (
     , authorization_order_insurance_task_id uuid
     , result_status_action character varying(50)
     , environment character varying(4000)
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
 );
 
 
@@ -575,8 +513,6 @@ CREATE TABLE auth_sender.authorization_order_rules_event_result_audr (
     , source_id uuid
     , old_value character varying(4000)
     , new_value character varying(4000)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 
@@ -609,12 +545,6 @@ CREATE TABLE auth_sender.authorization_order_rules_event_result_scrubdata (
     , rule_ext_id integer
     , rule_condition_systemkey character varying(50)
     , rule_status_action character varying(50)
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
 );
 
 
@@ -629,8 +559,6 @@ CREATE TABLE auth_sender.authorization_order_rules_event_result_scrubdata_audr (
     , source_id uuid
     , old_value character varying(50)
     , new_value character varying(50)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 
@@ -660,12 +588,6 @@ CREATE SEQUENCE auth_sender.authorization_order_rules_event_result_scrubdata_aud
 CREATE TABLE auth_sender.authorization_order_status (
     id character varying(50) NOT NULL
     , description character varying(250)
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
 );
 
 
@@ -680,8 +602,6 @@ CREATE TABLE auth_sender.authorization_order_status_audr (
     , source_id character varying(50)
     , old_value character varying(255)
     , new_value character varying(255)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 
@@ -715,12 +635,6 @@ CREATE TABLE auth_sender.authorization_order_status_message (
     , short_status character varying(200)
     , long_status_detail character varying(200)
     , short_status_detail character varying(200)
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
 );
 
 
@@ -735,8 +649,6 @@ CREATE TABLE auth_sender.authorization_order_status_message_audr (
     , source_id integer
     , old_value character varying(255)
     , new_value character varying(255)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 
@@ -789,12 +701,6 @@ CREATE TABLE auth_sender.cron_job (
     , started_on_host character varying(100)
     , finished_at timestamp with time zone
     , error character varying(5000)
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
 );
 
 
@@ -809,8 +715,6 @@ CREATE TABLE auth_sender.cron_job_audr (
     , source_id uuid
     , old_value character varying(5000)
     , new_value character varying(5000)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 
@@ -859,12 +763,6 @@ CREATE TABLE auth_sender.message_outbox (
     id uuid NOT NULL
     , authorization_order_id uuid NOT NULL
     , message jsonb NOT NULL
-    , created timestamp with time zone
-    , created_by character varying(20)
-    , deleted timestamp with time zone
-    , deleted_by character varying(20)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(20)
     , status character varying(20)
 );
 
@@ -878,12 +776,6 @@ CREATE TABLE auth_sender.prework_hold_condition (
     , clinical_order_type_group_ext_id integer
     , clinical_order_genus_ext_id integer
     , clinical_order_type_ext_id integer
-    , created timestamp with time zone
-    , created_by character varying(20)
-    , deleted timestamp with time zone
-    , deleted_by character varying(20)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(20)
     , context_ext_id integer
 );
 
@@ -899,8 +791,6 @@ CREATE TABLE auth_sender.prework_hold_condition_audr (
     , source_id integer
     , old_value character varying(255)
     , new_value character varying(255)
-    , created timestamp with time zone
-    , created_by character varying(20)
 );
 
 
@@ -931,12 +821,6 @@ CREATE TABLE auth_sender.prework_hold_condition_department (
     id uuid NOT NULL
     , prework_hold_condition_id integer
     , department_ext_id integer
-    , created timestamp with time zone
-    , created_by character varying(20)
-    , deleted timestamp with time zone
-    , deleted_by character varying(20)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(20)
 );
 
 
@@ -951,8 +835,6 @@ CREATE TABLE auth_sender.prework_hold_condition_department_audr (
     , source_id uuid
     , old_value character varying(255)
     , new_value character varying(255)
-    , created timestamp with time zone
-    , created_by character varying(20)
 );
 
 
@@ -1002,12 +884,6 @@ CREATE TABLE auth_sender.prework_hold_condition_provider (
     id uuid NOT NULL
     , prework_hold_condition_id integer
     , provider_ext_id integer
-    , created timestamp with time zone
-    , created_by character varying(20)
-    , deleted timestamp with time zone
-    , deleted_by character varying(20)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(20)
 );
 
 
@@ -1022,8 +898,6 @@ CREATE TABLE auth_sender.prework_hold_condition_provider_audr (
     , source_id uuid
     , old_value character varying(255)
     , new_value character varying(255)
-    , created timestamp with time zone
-    , created_by character varying(20)
 );
 
 
@@ -1058,12 +932,6 @@ CREATE TABLE auth_sender.procedure_code (
     , description character varying(500)
     , common_description character varying(100)
     , type_of_service character varying(10)
-    , deleted timestamp with time zone
-    , deleted_by character varying(30)
-    , created timestamp with time zone
-    , created_by character varying(30)
-    , last_modified timestamp with time zone
-    , last_modified_by character varying(30)
 );
 
 
@@ -1078,8 +946,6 @@ CREATE TABLE auth_sender.procedure_code_audr (
     , source_id uuid
     , old_value character varying(1000)
     , new_value character varying(1000)
-    , created timestamp with time zone
-    , created_by character varying(30)
 );
 
 

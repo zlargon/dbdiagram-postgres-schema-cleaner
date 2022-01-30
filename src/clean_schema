@@ -18,6 +18,15 @@ const validCreateStatements = new Set([
   'VIEW',
 ]);
 
+const excludeColumns = new Set([
+  'created', //
+  'created_by',
+  'deleted',
+  'deleted_by',
+  'last_modified',
+  'last_modified_by',
+]);
+
 let thisLineIsFirstColumn = false;
 let createStatement = null;
 let continuousNewLines = 0;
@@ -44,6 +53,7 @@ readline.createInterface({ input }).on('line', (line) => {
     }
 
     // Valid CREATE statement
+    let columnIsDeleted = false;
     if (createStatement === 'TABLE') {
       // move , to the front
       line = line.replace(/(^\s*)(\w+.*$)/, (match, p1, p2, offset, string) => {
@@ -68,15 +78,24 @@ readline.createInterface({ input }).on('line', (line) => {
         return p2.includes('::') ? p1 : string;
       });
 
+      // 4. remove exclude columns
+      line = line.replace(/^\s*, (\w+) .*$/, (match, column, offset, string) => {
+        if (!excludeColumns.has(column)) return string;
+
+        // column has been deleted
+        columnIsDeleted = true;
+        return '';
+      });
+
       // remove , for the first column
-      if (thisLineIsFirstColumn) {
+      if (thisLineIsFirstColumn && !columnIsDeleted) {
         line = line.replace(/(^\s*), (\w+.*$)/, (match, p1, p2, offset, string) => {
           return p1 + p2;
         });
         thisLineIsFirstColumn = false;
       }
     }
-    console.log(line);
+    process.stdout.write(line + (columnIsDeleted ? '' : '\n'));
     return;
   }
 
