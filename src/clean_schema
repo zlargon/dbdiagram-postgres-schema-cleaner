@@ -1,0 +1,100 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const readline = require('readline');
+
+// remove whole CREATE statements if it's not in this list
+const validCreateStatements = new Set([
+  'GLOBAL',
+  // 'INDEX',
+  'LOCAL',
+  'SCHEMA',
+  'SEQUENCE',
+  'TABLE',
+  'TEMP',
+  'TEMPORARY',
+  'TYPE',
+  'UNIQUE',
+  'UNLOGGED',
+  'VIEW',
+]);
+
+const DEV = false;
+const write = (tag, line) => {
+  if (tag === 'drop') return;
+
+  if (DEV) {
+    tag = tag.toLowerCase();
+    process.stdout.write(tag);
+    if (tag.length > 0) {
+      process.stdout.write(':');
+      if (line.length > 0) process.stdout.write(' ');
+    }
+  }
+
+  process.stdout.write(line);
+  process.stdout.write('\n');
+};
+
+let createStatement = null;
+let continuousNewLines = 0;
+
+const input = process.argv[2] ? fs.createReadStream(process.argv[2]) : process.stdin;
+readline.createInterface({ input }).on('line', (line) => {
+  // 1. check the continuousNewLines
+  if (line.length === 0) {
+    continuousNewLines++;
+    if (continuousNewLines === 2) {
+      continuousNewLines = 0;
+      createStatement = null;
+      // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
+    }
+  } else {
+    // reset to 0
+    continuousNewLines = 0;
+  }
+
+  // It's create statement block
+  if (createStatement !== null) {
+    // Invalid CREATE statement
+    if (!validCreateStatements.has(createStatement)) {
+      write('drop', line);
+      return;
+    }
+
+    // Valid CREATE statement
+    if (createStatement === 'TABLE') {
+      // TODO:
+      // find the TYPE segment
+      // if has ".", remove the prefix schema name
+      // if has [], rename to 'xxx_array'
+      // if DEFAULT has ::, remove any thing behind the ::
+    }
+    write(createStatement, line);
+    return;
+  }
+
+  // check the CREATE statements
+  const result = line.match(/^CREATE (\w+)/);
+
+  // NOT CREATE statement
+  if (result === null) {
+    createStatement = null;
+    write('', line);
+    return;
+  }
+
+  createStatement = result[1];
+
+  // Valid CREATE statement
+  if (validCreateStatements.has(createStatement)) {
+    if (createStatement === 'TYPE') {
+      // TODO:
+      // if has ".", remove the prefix schema name
+    }
+    write(createStatement, line);
+    return;
+  }
+
+  // Invalid CREATE statement => Drop this line
+  write('drop', line);
+});
