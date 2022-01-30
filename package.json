@@ -1,7 +1,7 @@
 {
   "scripts": {
     "db": "scripts/setup_postgres.sh",
-    "test": "scripts/test.sh",
+    "test": "test/unit/run.sh",
     "-------- docker commands --------": "",
     "ps": "docker ps",
     "up": "docker compose -f docker-compose.yml -p dvdrental up -d",
