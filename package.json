@@ -1,6 +1,7 @@
 {
   "scripts": {
     "db": "scripts/setup_postgres.sh",
+    "dump": "scripts/dump.sh",
     "-------- docker commands --------": "",
     "ps": "docker ps",
     "up": "docker compose -f docker-compose.yml -p dvdrental up -d",
