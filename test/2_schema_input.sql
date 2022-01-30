@@ -502,22 +502,6 @@ CREATE TABLE auth_sender.authorization_order_attachment (
 
 
 --
--- Name: authorization_order_attachment_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.authorization_order_attachment_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id character varying(50),
-    old_value character varying(255),
-    new_value character varying(255),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: authorization_order_attachment_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -531,29 +515,6 @@ CREATE SEQUENCE auth_sender.authorization_order_attachment_audr_id_seq
 
 
 --
--- Name: authorization_order_attachment_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.authorization_order_attachment_audr_id_seq OWNED BY auth_sender.authorization_order_attachment_audr.id;
-
-
---
--- Name: authorization_order_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.authorization_order_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id uuid,
-    old_value character varying(255),
-    new_value character varying(255),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: authorization_order_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -564,13 +525,6 @@ CREATE SEQUENCE auth_sender.authorization_order_audr_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: authorization_order_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.authorization_order_audr_id_seq OWNED BY auth_sender.authorization_order_audr.id;
 
 
 --
@@ -607,22 +561,6 @@ CREATE TABLE auth_sender.authorization_order_history_event (
 
 
 --
--- Name: authorization_order_history_event_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.authorization_order_history_event_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id uuid,
-    old_value character varying(4000),
-    new_value character varying(4000),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: authorization_order_history_event_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -633,13 +571,6 @@ CREATE SEQUENCE auth_sender.authorization_order_history_event_audr_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: authorization_order_history_event_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.authorization_order_history_event_audr_id_seq OWNED BY auth_sender.authorization_order_history_event_audr.id;
 
 
 --
@@ -666,22 +597,6 @@ CREATE TABLE auth_sender.authorization_order_insurance_task (
 
 
 --
--- Name: authorization_order_insurance_task_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.authorization_order_insurance_task_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id uuid,
-    old_value character varying(255),
-    new_value character varying(255),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: authorization_order_insurance_task_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -692,13 +607,6 @@ CREATE SEQUENCE auth_sender.authorization_order_insurance_task_audr_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: authorization_order_insurance_task_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.authorization_order_insurance_task_audr_id_seq OWNED BY auth_sender.authorization_order_insurance_task_audr.id;
 
 
 --
@@ -719,22 +627,6 @@ CREATE TABLE auth_sender.authorization_order_mapping_history_and_tasks (
 
 
 --
--- Name: authorization_order_mapping_history_and_tasks_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.authorization_order_mapping_history_and_tasks_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id uuid,
-    old_value character varying(255),
-    new_value character varying(255),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: authorization_order_mapping_history_and_tasks_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -745,13 +637,6 @@ CREATE SEQUENCE auth_sender.authorization_order_mapping_history_and_tasks_audr_i
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: authorization_order_mapping_history_and_tasks_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.authorization_order_mapping_history_and_tasks_audr_id_seq OWNED BY auth_sender.authorization_order_mapping_history_and_tasks_audr.id;
 
 
 --
@@ -772,22 +657,6 @@ CREATE TABLE auth_sender.authorization_order_procedure_code (
 
 
 --
--- Name: authorization_order_procedure_code_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.authorization_order_procedure_code_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id uuid,
-    old_value character varying(255),
-    new_value character varying(255),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: authorization_order_procedure_code_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -798,13 +667,6 @@ CREATE SEQUENCE auth_sender.authorization_order_procedure_code_audr_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: authorization_order_procedure_code_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.authorization_order_procedure_code_audr_id_seq OWNED BY auth_sender.authorization_order_procedure_code_audr.id;
 
 
 --
@@ -825,22 +687,6 @@ CREATE TABLE auth_sender.authorization_order_rules_event (
 
 
 --
--- Name: authorization_order_rules_event_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.authorization_order_rules_event_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id uuid,
-    old_value character varying(255),
-    new_value character varying(255),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: authorization_order_rules_event_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -851,13 +697,6 @@ CREATE SEQUENCE auth_sender.authorization_order_rules_event_audr_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: authorization_order_rules_event_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.authorization_order_rules_event_audr_id_seq OWNED BY auth_sender.authorization_order_rules_event_audr.id;
 
 
 --
@@ -880,22 +719,6 @@ CREATE TABLE auth_sender.authorization_order_rules_event_result (
 
 
 --
--- Name: authorization_order_rules_event_result_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.authorization_order_rules_event_result_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id uuid,
-    old_value character varying(4000),
-    new_value character varying(4000),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: authorization_order_rules_event_result_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -906,13 +729,6 @@ CREATE SEQUENCE auth_sender.authorization_order_rules_event_result_audr_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: authorization_order_rules_event_result_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.authorization_order_rules_event_result_audr_id_seq OWNED BY auth_sender.authorization_order_rules_event_result_audr.id;
 
 
 --
@@ -935,22 +751,6 @@ CREATE TABLE auth_sender.authorization_order_rules_event_result_scrubdata (
 
 
 --
--- Name: authorization_order_rules_event_result_scrubdata_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.authorization_order_rules_event_result_scrubdata_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id uuid,
-    old_value character varying(50),
-    new_value character varying(50),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: authorization_order_rules_event_result_scrubdata_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -961,13 +761,6 @@ CREATE SEQUENCE auth_sender.authorization_order_rules_event_result_scrubdata_aud
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: authorization_order_rules_event_result_scrubdata_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.authorization_order_rules_event_result_scrubdata_audr_id_seq OWNED BY auth_sender.authorization_order_rules_event_result_scrubdata_audr.id;
 
 
 --
@@ -987,22 +780,6 @@ CREATE TABLE auth_sender.authorization_order_status (
 
 
 --
--- Name: authorization_order_status_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.authorization_order_status_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id character varying(50),
-    old_value character varying(255),
-    new_value character varying(255),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: authorization_order_status_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -1013,13 +790,6 @@ CREATE SEQUENCE auth_sender.authorization_order_status_audr_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: authorization_order_status_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.authorization_order_status_audr_id_seq OWNED BY auth_sender.authorization_order_status_audr.id;
 
 
 --
@@ -1043,22 +813,6 @@ CREATE TABLE auth_sender.authorization_order_status_message (
 
 
 --
--- Name: authorization_order_status_message_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.authorization_order_status_message_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id integer,
-    old_value character varying(255),
-    new_value character varying(255),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: authorization_order_status_message_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -1069,13 +823,6 @@ CREATE SEQUENCE auth_sender.authorization_order_status_message_audr_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: authorization_order_status_message_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.authorization_order_status_message_audr_id_seq OWNED BY auth_sender.authorization_order_status_message_audr.id;
 
 
 --
@@ -1119,22 +866,6 @@ CREATE TABLE auth_sender.cron_job (
 
 
 --
--- Name: cron_job_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.cron_job_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id uuid,
-    old_value character varying(5000),
-    new_value character varying(5000),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: cron_job_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -1145,31 +876,6 @@ CREATE SEQUENCE auth_sender.cron_job_audr_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: cron_job_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.cron_job_audr_id_seq OWNED BY auth_sender.cron_job_audr.id;
-
-
---
--- Name: flyway_schema_history; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.flyway_schema_history (
-    installed_rank integer NOT NULL,
-    version character varying(50),
-    description character varying(200) NOT NULL,
-    type character varying(20) NOT NULL,
-    script character varying(1000) NOT NULL,
-    checksum integer,
-    installed_by character varying(100) NOT NULL,
-    installed_on timestamp without time zone DEFAULT now() NOT NULL,
-    execution_time integer NOT NULL,
-    success boolean NOT NULL
-);
 
 
 --
@@ -1210,22 +916,6 @@ CREATE TABLE auth_sender.prework_hold_condition (
 
 
 --
--- Name: prework_hold_condition_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.prework_hold_condition_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id integer,
-    old_value character varying(255),
-    new_value character varying(255),
-    created timestamp with time zone,
-    created_by character varying(20)
-);
-
-
---
 -- Name: prework_hold_condition_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -1236,13 +926,6 @@ CREATE SEQUENCE auth_sender.prework_hold_condition_audr_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: prework_hold_condition_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.prework_hold_condition_audr_id_seq OWNED BY auth_sender.prework_hold_condition_audr.id;
 
 
 --
@@ -1263,22 +946,6 @@ CREATE TABLE auth_sender.prework_hold_condition_department (
 
 
 --
--- Name: prework_hold_condition_department_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.prework_hold_condition_department_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id uuid,
-    old_value character varying(255),
-    new_value character varying(255),
-    created timestamp with time zone,
-    created_by character varying(20)
-);
-
-
---
 -- Name: prework_hold_condition_department_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -1289,13 +956,6 @@ CREATE SEQUENCE auth_sender.prework_hold_condition_department_audr_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: prework_hold_condition_department_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.prework_hold_condition_department_audr_id_seq OWNED BY auth_sender.prework_hold_condition_department_audr.id;
 
 
 --
@@ -1336,22 +996,6 @@ CREATE TABLE auth_sender.prework_hold_condition_provider (
 
 
 --
--- Name: prework_hold_condition_provider_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.prework_hold_condition_provider_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id uuid,
-    old_value character varying(255),
-    new_value character varying(255),
-    created timestamp with time zone,
-    created_by character varying(20)
-);
-
-
---
 -- Name: prework_hold_condition_provider_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -1362,13 +1006,6 @@ CREATE SEQUENCE auth_sender.prework_hold_condition_provider_audr_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
-
-
---
--- Name: prework_hold_condition_provider_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.prework_hold_condition_provider_audr_id_seq OWNED BY auth_sender.prework_hold_condition_provider_audr.id;
 
 
 --
@@ -1393,22 +1030,6 @@ CREATE TABLE auth_sender.procedure_code (
 
 
 --
--- Name: procedure_code_audr; Type: TABLE; Schema: auth_sender; Owner: -
---
-
-CREATE TABLE auth_sender.procedure_code_audr (
-    id integer NOT NULL,
-    field character varying(50),
-    operation character varying(20),
-    source_id uuid,
-    old_value character varying(1000),
-    new_value character varying(1000),
-    created timestamp with time zone,
-    created_by character varying(30)
-);
-
-
---
 -- Name: procedure_code_audr_id_seq; Type: SEQUENCE; Schema: auth_sender; Owner: -
 --
 
@@ -1422,83 +1043,6 @@ CREATE SEQUENCE auth_sender.procedure_code_audr_id_seq
 
 
 --
--- Name: procedure_code_audr_id_seq; Type: SEQUENCE OWNED BY; Schema: auth_sender; Owner: -
---
-
-ALTER SEQUENCE auth_sender.procedure_code_audr_id_seq OWNED BY auth_sender.procedure_code_audr.id;
-
-
---
--- Name: authorization_order_attachment_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_attachment_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.authorization_order_attachment_audr_id_seq'::regclass);
-
-
---
--- Name: authorization_order_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.authorization_order_audr_id_seq'::regclass);
-
-
---
--- Name: authorization_order_history_event_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_history_event_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.authorization_order_history_event_audr_id_seq'::regclass);
-
-
---
--- Name: authorization_order_insurance_task_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_insurance_task_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.authorization_order_insurance_task_audr_id_seq'::regclass);
-
-
---
--- Name: authorization_order_mapping_history_and_tasks_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_mapping_history_and_tasks_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.authorization_order_mapping_history_and_tasks_audr_id_seq'::regclass);
-
-
---
--- Name: authorization_order_procedure_code_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_procedure_code_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.authorization_order_procedure_code_audr_id_seq'::regclass);
-
-
---
--- Name: authorization_order_rules_event_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_rules_event_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.authorization_order_rules_event_audr_id_seq'::regclass);
-
-
---
--- Name: authorization_order_rules_event_result_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_rules_event_result_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.authorization_order_rules_event_result_audr_id_seq'::regclass);
-
-
---
--- Name: authorization_order_rules_event_result_scrubdata_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_rules_event_result_scrubdata_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.authorization_order_rules_event_result_scrubdata_audr_id_seq'::regclass);
-
-
---
--- Name: authorization_order_status_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_status_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.authorization_order_status_audr_id_seq'::regclass);
-
-
---
 -- Name: authorization_order_status_message id; Type: DEFAULT; Schema: auth_sender; Owner: -
 --
 
@@ -1506,60 +1050,10 @@ ALTER TABLE ONLY auth_sender.authorization_order_status_message ALTER COLUMN id 
 
 
 --
--- Name: authorization_order_status_message_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_status_message_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.authorization_order_status_message_audr_id_seq'::regclass);
-
-
---
--- Name: cron_job_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.cron_job_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.cron_job_audr_id_seq'::regclass);
-
-
---
 -- Name: prework_hold_condition id; Type: DEFAULT; Schema: auth_sender; Owner: -
 --
 
 ALTER TABLE ONLY auth_sender.prework_hold_condition ALTER COLUMN id SET DEFAULT nextval('auth_sender.prework_hold_condition_id_seq'::regclass);
-
-
---
--- Name: prework_hold_condition_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.prework_hold_condition_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.prework_hold_condition_audr_id_seq'::regclass);
-
-
---
--- Name: prework_hold_condition_department_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.prework_hold_condition_department_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.prework_hold_condition_department_audr_id_seq'::regclass);
-
-
---
--- Name: prework_hold_condition_provider_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.prework_hold_condition_provider_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.prework_hold_condition_provider_audr_id_seq'::regclass);
-
-
---
--- Name: procedure_code_audr id; Type: DEFAULT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.procedure_code_audr ALTER COLUMN id SET DEFAULT nextval('auth_sender.procedure_code_audr_id_seq'::regclass);
-
-
---
--- Name: authorization_order_attachment_audr authorization_order_attachment_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_attachment_audr
-    ADD CONSTRAINT authorization_order_attachment_audr_pkey PRIMARY KEY (id);
 
 
 --
@@ -1571,22 +1065,6 @@ ALTER TABLE ONLY auth_sender.authorization_order_attachment
 
 
 --
--- Name: authorization_order_audr authorization_order_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_audr
-    ADD CONSTRAINT authorization_order_audr_pkey PRIMARY KEY (id);
-
-
---
--- Name: authorization_order_history_event_audr authorization_order_history_event_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_history_event_audr
-    ADD CONSTRAINT authorization_order_history_event_audr_pkey PRIMARY KEY (id);
-
-
---
 -- Name: authorization_order_history_event authorization_order_history_event_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
 --
 
@@ -1595,27 +1073,11 @@ ALTER TABLE ONLY auth_sender.authorization_order_history_event
 
 
 --
--- Name: authorization_order_insurance_task_audr authorization_order_insurance_task_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_insurance_task_audr
-    ADD CONSTRAINT authorization_order_insurance_task_audr_pkey PRIMARY KEY (id);
-
-
---
 -- Name: authorization_order_insurance_task authorization_order_insurance_task_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
 --
 
 ALTER TABLE ONLY auth_sender.authorization_order_insurance_task
     ADD CONSTRAINT authorization_order_insurance_task_pkey PRIMARY KEY (id);
-
-
---
--- Name: authorization_order_mapping_history_and_tasks_audr authorization_order_mapping_history_and_tasks_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_mapping_history_and_tasks_audr
-    ADD CONSTRAINT authorization_order_mapping_history_and_tasks_audr_pkey PRIMARY KEY (id);
 
 
 --
@@ -1643,27 +1105,11 @@ ALTER TABLE ONLY auth_sender.authorization_order
 
 
 --
--- Name: authorization_order_procedure_code_audr authorization_order_procedure_code_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_procedure_code_audr
-    ADD CONSTRAINT authorization_order_procedure_code_audr_pkey PRIMARY KEY (id);
-
-
---
 -- Name: authorization_order_procedure_code authorization_order_procedure_code_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
 --
 
 ALTER TABLE ONLY auth_sender.authorization_order_procedure_code
     ADD CONSTRAINT authorization_order_procedure_code_pkey PRIMARY KEY (id);
-
-
---
--- Name: authorization_order_rules_event_audr authorization_order_rules_event_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_rules_event_audr
-    ADD CONSTRAINT authorization_order_rules_event_audr_pkey PRIMARY KEY (id);
 
 
 --
@@ -1675,14 +1121,6 @@ ALTER TABLE ONLY auth_sender.authorization_order_rules_event
 
 
 --
--- Name: authorization_order_rules_event_result_audr authorization_order_rules_event_result_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_rules_event_result_audr
-    ADD CONSTRAINT authorization_order_rules_event_result_audr_pkey PRIMARY KEY (id);
-
-
---
 -- Name: authorization_order_rules_event_result authorization_order_rules_event_result_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
 --
 
@@ -1691,35 +1129,11 @@ ALTER TABLE ONLY auth_sender.authorization_order_rules_event_result
 
 
 --
--- Name: authorization_order_rules_event_result_scrubdata_audr authorization_order_rules_event_result_scrubdata_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_rules_event_result_scrubdata_audr
-    ADD CONSTRAINT authorization_order_rules_event_result_scrubdata_audr_pkey PRIMARY KEY (id);
-
-
---
 -- Name: authorization_order_rules_event_result_scrubdata authorization_order_rules_event_result_scrubdata_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
 --
 
 ALTER TABLE ONLY auth_sender.authorization_order_rules_event_result_scrubdata
     ADD CONSTRAINT authorization_order_rules_event_result_scrubdata_pkey PRIMARY KEY (id);
-
-
---
--- Name: authorization_order_status_audr authorization_order_status_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_status_audr
-    ADD CONSTRAINT authorization_order_status_audr_pkey PRIMARY KEY (id);
-
-
---
--- Name: authorization_order_status_message_audr authorization_order_status_message_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.authorization_order_status_message_audr
-    ADD CONSTRAINT authorization_order_status_message_audr_pkey PRIMARY KEY (id);
 
 
 --
@@ -1739,14 +1153,6 @@ ALTER TABLE ONLY auth_sender.authorization_order_status
 
 
 --
--- Name: cron_job_audr cron_job_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.cron_job_audr
-    ADD CONSTRAINT cron_job_audr_pkey PRIMARY KEY (id);
-
-
---
 -- Name: cron_job cron_job_job_run_key; Type: CONSTRAINT; Schema: auth_sender; Owner: -
 --
 
@@ -1763,35 +1169,11 @@ ALTER TABLE ONLY auth_sender.cron_job
 
 
 --
--- Name: flyway_schema_history flyway_schema_history_pk; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.flyway_schema_history
-    ADD CONSTRAINT flyway_schema_history_pk PRIMARY KEY (installed_rank);
-
-
---
 -- Name: message_outbox message_outbox_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
 --
 
 ALTER TABLE ONLY auth_sender.message_outbox
     ADD CONSTRAINT message_outbox_pkey PRIMARY KEY (id);
-
-
---
--- Name: prework_hold_condition_audr prework_hold_condition_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.prework_hold_condition_audr
-    ADD CONSTRAINT prework_hold_condition_audr_pkey PRIMARY KEY (id);
-
-
---
--- Name: prework_hold_condition_department_audr prework_hold_condition_department_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.prework_hold_condition_department_audr
-    ADD CONSTRAINT prework_hold_condition_department_audr_pkey PRIMARY KEY (id);
 
 
 --
@@ -1811,27 +1193,11 @@ ALTER TABLE ONLY auth_sender.prework_hold_condition
 
 
 --
--- Name: prework_hold_condition_provider_audr prework_hold_condition_provider_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.prework_hold_condition_provider_audr
-    ADD CONSTRAINT prework_hold_condition_provider_audr_pkey PRIMARY KEY (id);
-
-
---
 -- Name: prework_hold_condition_provider prework_hold_condition_provider_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
 --
 
 ALTER TABLE ONLY auth_sender.prework_hold_condition_provider
     ADD CONSTRAINT prework_hold_condition_provider_pkey PRIMARY KEY (id);
-
-
---
--- Name: procedure_code_audr procedure_code_audr_pkey; Type: CONSTRAINT; Schema: auth_sender; Owner: -
---
-
-ALTER TABLE ONLY auth_sender.procedure_code_audr
-    ADD CONSTRAINT procedure_code_audr_pkey PRIMARY KEY (id);
 
 
 --
@@ -1851,27 +1217,6 @@ ALTER TABLE ONLY auth_sender.procedure_code
 
 
 --
--- Name: flyway_schema_history_s_idx; Type: INDEX; Schema: auth_sender; Owner: -
---
-
-CREATE INDEX flyway_schema_history_s_idx ON auth_sender.flyway_schema_history USING btree (success);
-
-
---
--- Name: idx_authorder_audr_sourceid; Type: INDEX; Schema: auth_sender; Owner: -
---
-
-CREATE INDEX idx_authorder_audr_sourceid ON auth_sender.authorization_order_audr USING btree (source_id);
-
-
---
--- Name: idx_authorderattach_audr_sourceid; Type: INDEX; Schema: auth_sender; Owner: -
---
-
-CREATE INDEX idx_authorderattach_audr_sourceid ON auth_sender.authorization_order_attachment_audr USING btree (source_id);
-
-
---
 -- Name: idx_authorderattach_authorization_order_id; Type: INDEX; Schema: auth_sender; Owner: -
 --
 
@@ -1883,13 +1228,6 @@ CREATE INDEX idx_authorderattach_authorization_order_id ON auth_sender.authoriza
 --
 
 CREATE INDEX idx_historyevent_authorization_order_id ON auth_sender.authorization_order_history_event USING btree (authorization_order_id);
-
-
---
--- Name: idx_insurancetask_audr_sourceid; Type: INDEX; Schema: auth_sender; Owner: -
---
-
-CREATE INDEX idx_insurancetask_audr_sourceid ON auth_sender.authorization_order_insurance_task_audr USING btree (source_id);
 
 
 --
@@ -1911,13 +1249,6 @@ CREATE INDEX idx_mappinghistorytask_history_event_id ON auth_sender.authorizatio
 --
 
 CREATE INDEX idx_mappinghistorytask_insurance_task_id ON auth_sender.authorization_order_mapping_history_and_tasks USING btree (insurance_task_id);
-
-
---
--- Name: idx_procedurecode_audr_sourceid; Type: INDEX; Schema: auth_sender; Owner: -
---
-
-CREATE INDEX idx_procedurecode_audr_sourceid ON auth_sender.authorization_order_procedure_code_audr USING btree (source_id);
 
 
 --
