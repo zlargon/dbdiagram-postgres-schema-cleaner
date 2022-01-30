@@ -1,7 +1,6 @@
 {
   "scripts": {
     "db": "scripts/setup_postgres.sh",
-    "dump": "scripts/dump.sh",
     "test": "scripts/test.sh",
     "-------- docker commands --------": "",
     "ps": "docker ps",
