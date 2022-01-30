@@ -1,0 +1,11 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      # https://docs.docker.com/compose/environment-variables/
+      - '${ENV_POSTGRES_PORT:-5432}:5432'
+    environment:
+      # create a default database called 'dvdrental'
+      POSTGRES_DB: dvdrental
+      POSTGRES_HOST_AUTH_METHOD: trust

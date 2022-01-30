@@ -1,0 +1,7 @@
+.DS_Store
+*.tar
+*.zip
+node_modules
+
+# direnv
+.envrc
