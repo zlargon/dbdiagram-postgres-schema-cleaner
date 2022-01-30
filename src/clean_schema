@@ -35,6 +35,7 @@ const write = (tag, line) => {
   process.stdout.write('\n');
 };
 
+let thisLineIsFirstColumn = false;
 let createStatement = null;
 let continuousNewLines = 0;
 
@@ -63,22 +64,36 @@ readline.createInterface({ input }).on('line', (line) => {
 
     // Valid CREATE statement
     if (createStatement === 'TABLE') {
+      // move , to the front
+      line = line.replace(/(^\s*)(\w+.*$)/, (match, p1, p2, offset, string) => {
+        if (p2[p2.length - 1] === ',') {
+          p2 = p2.slice(0, -1);
+        }
+        return `${p1}, ${p2}`;
+      });
+
       // 1. if type has ".", remove the prefix schema name
-      line = line.replace(/(^\s*\w+ )\w+\.(\w+.*$)/, (match, p1, p2, offset, string) => {
+      line = line.replace(/(^\s*, \w+ )\w+\.(\w+.*$)/, (match, p1, p2, offset, string) => {
         return p1 + p2;
       });
 
       // 2. if has [], rename to 'xxx_array'
-      line = line.replace(/(^\s*\w+ \w+)\[\](.*$)/, (match, p1, p2, offset, string) => {
+      line = line.replace(/(^\s*, \w+ \w+)\[\](.*$)/, (match, p1, p2, offset, string) => {
         return `${p1}_array${p2}`;
       });
 
       // 3. if DEFAULT has ::, remove the DEFAULT
       line = line.replace(/(^.*)( DEFAULT.+$)/, (match, p1, p2, offset, string) => {
-        return !p2.includes('::')
-          ? string // don't have ::
-          : p1 + (p2[p2.length - 1] === ',' ? ',' : ''); // has ::, and check last ,
+        return p2.includes('::') ? p1 : string;
       });
+
+      // remove , for the first column
+      if (thisLineIsFirstColumn) {
+        line = line.replace(/(^\s*), (\w+.*$)/, (match, p1, p2, offset, string) => {
+          return p1 + p2;
+        });
+        thisLineIsFirstColumn = false;
+      }
     }
     write(createStatement, line);
     return;
@@ -111,6 +126,11 @@ readline.createInterface({ input }).on('line', (line) => {
         return p1 + p2;
       });
     }
+
+    if (createStatement === 'TABLE') {
+      thisLineIsFirstColumn = true;
+    }
+
     write(createStatement, line);
     return;
   }
